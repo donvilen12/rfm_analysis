@@ -166,7 +166,7 @@ max_date = all_df["order_approved_at"].max()
 with st.sidebar:
     # Display logo 
     st.image("./olist.PNG")
-    st.image("/braz-eComS1.PNG")
+    st.image("./braz-eComS1.PNG")
     st.write("#")
     
     # Get start_date & end_date from date_input
