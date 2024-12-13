@@ -1,2 +1,7 @@
 matplotlib
+seaborn
 pandas
+numpy
+squarify
+babel
+datetime
