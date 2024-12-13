@@ -165,8 +165,9 @@ max_date = all_df["order_approved_at"].max()
 
 with st.sidebar:
     # Display logo 
-    st.image("https://github.com/donvilen12/rfm_analysis/blob/main/olist.PNG")
-    st.image("https://github.com/donvilen12/rfm_analysis/blob/main/braz-eComS1.PNG")
+    st.sidebar.image(load_image("olist.png"), use_column_width=True)
+    # st.image("https://github.com/donvilen12/rfm_analysis/blob/main/olist.PNG")
+    # st.image("https://github.com/donvilen12/rfm_analysis/blob/main/braz-eComS1.PNG")
     st.write("#")
     
     # Get start_date & end_date from date_input
