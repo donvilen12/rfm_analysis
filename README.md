@@ -1,8 +1,8 @@
-# Proyek Analisis Data Dashboard ✨
+# Proyek Analisis Data & Dashboard ✨
 
 ## Setup Environment - Anaconda
 ```
-conda create --name main-ds python=3.9
+conda create --name mla python=3.9
 conda activate mla
 pip install -r requirements.txt
 ```
