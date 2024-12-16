@@ -375,7 +375,7 @@ with tab2:
 # RFM
 st.subheader("RFM Analysis")
 
-tab1, tab2 = st.tabs(["By Class", "By Segmentation"])
+# tab1, tab2 = st.tabs(["By Class", "By Segmentation"])
 
 # with tab1:
 #     fig, ax = plt.subplots(figsize=(16, 8))
@@ -391,48 +391,48 @@ tab1, tab2 = st.tabs(["By Class", "By Segmentation"])
 #     st.pyplot(fig)
 
 # with tab2:
-    fig, ax = plt.subplots(figsize=(16, 8))
+fig, ax = plt.subplots(figsize=(16, 8))
 
-    # Calculate average values for each RFM_Level, and return a size of each segment 
-    rfm_level_agg = rfm_df.groupby('Label').agg({
-        'Recency': 'mean',
-        'Frequency': 'mean',
-        'Monetary': ['mean', 'count']
-    }).round(1)
+# Calculate average values for each RFM_Level, and return a size of each segment 
+rfm_level_agg = rfm_df.groupby('Label').agg({
+    'Recency': 'mean',
+    'Frequency': 'mean',
+    'Monetary': ['mean', 'count']
+}).round(1)
 
-    # remove 1 levels from an index
-    rfm_level_agg.columns = rfm_level_agg.columns.droplevel()
+# remove 1 levels from an index
+rfm_level_agg.columns = rfm_level_agg.columns.droplevel()
 
-    # Rename Columns
-    rfm_level_agg.columns = ['RecencyMean','FrequencyMean','MonetaryMean', 'Count']
+# Rename Columns
+rfm_level_agg.columns = ['RecencyMean','FrequencyMean','MonetaryMean', 'Count']
 
-    # Data
-    labels = rfm_level_agg.index
-    sizes = rfm_level_agg['Count']
-    #colors=['#f0f0f0','#d2d2d2','#b4b4b4','#a5a5a5','#969696','#425a90','#2e4884']
-    colors=['#d2d2d2','#b4b4b4','#a5a5a5','#969696','#425a90','#2e4884']
+# Data
+labels = rfm_level_agg.index
+sizes = rfm_level_agg['Count']
+#colors=['#f0f0f0','#d2d2d2','#b4b4b4','#a5a5a5','#969696','#425a90','#2e4884']
+colors=['#d2d2d2','#b4b4b4','#a5a5a5','#969696','#425a90','#2e4884']
 
-    # Plot
-    fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
+# Plot
+fig, ax = plt.subplots(figsize=(10, 6), subplot_kw=dict(aspect="equal"))
 
-    # wedges, texts = ax.pie(sizes, wedgeprops=dict(width=0.5), startangle=-40)
-    wedges, texts = ax.pie(sizes, wedgeprops=dict(width=0.5), startangle=-40, colors=colors)
+# wedges, texts = ax.pie(sizes, wedgeprops=dict(width=0.5), startangle=-40)
+wedges, texts = ax.pie(sizes, wedgeprops=dict(width=0.5), startangle=-40, colors=colors)
 
-    # Inner circle
-    centre_circle = plt.Circle((0,0),0.40,fc='white')
-    fig = plt.gcf()
-    fig.gca().add_artist(centre_circle)
+# Inner circle
+centre_circle = plt.Circle((0,0),0.40,fc='white')
+fig = plt.gcf()
+fig.gca().add_artist(centre_circle)
 
-    # Add labels
-    ax.legend(wedges, labels,
-        title="Segmentation",
-        loc="center left",
-        bbox_to_anchor=(1, 0, 0.5, 1))
+# Add labels
+ax.legend(wedges, labels,
+    title="Segmentation",
+    loc="center left",
+    bbox_to_anchor=(1, 0, 0.5, 1))
 
-    plt.setp(texts, size=12, weight="bold")
+plt.setp(texts, size=12, weight="bold")
 
-    ax.set_title("RFM Segmentation")
+ax.set_title("RFM Segmentation")
 
-    st.pyplot(fig)
+st.pyplot(fig)
 
 st.caption('Copyright © DRI 2024')
