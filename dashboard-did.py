@@ -375,22 +375,6 @@ with tab2:
 # RFM
 st.subheader("RFM Analysis")
 
-# tab1, tab2 = st.tabs(["By Class", "By Segmentation"])
-
-# with tab1:
-#     fig, ax = plt.subplots(figsize=(16, 8))
-
-#     # Visualize RFM Segments
-#     sns.scatterplot(x='Recency', y='Frequency', hue='Segment', data=rfm_df)
-    
-#     ax.set_title("RFM Segmentation", loc="center", fontsize=30)
-#     ax.set_ylabel('Frequency (Number of Purchases)')
-#     ax.set_xlabel('Recency (Days Since Last Purchase)')
-#     ax.tick_params(axis='x', labelsize=15)
-#     ax.tick_params(axis='y', labelsize=15)
-#     st.pyplot(fig)
-
-# with tab2:
 fig, ax = plt.subplots(figsize=(16, 8))
 
 # Calculate average values for each RFM_Level, and return a size of each segment 
